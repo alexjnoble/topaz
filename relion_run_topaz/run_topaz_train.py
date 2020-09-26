@@ -112,16 +112,17 @@ os.system(str('''head -n `grep -n -m 2 loop_ ''')+inargsMics+str(''' | awk -F":"
 os.system(str('echo "_rlnMicrographName" >> ')+outargsStar)
 os.system(str('''ls ''')+outargsPreProc+str(''' | awk '{print "''')+outargsPreProc+str('''/"$1}' >> ''')+outargsStar)
 
-#Making coords file to display picks (is this useful at all??????)
-f=open(outargsPath+"coords_suffix_extract.star","w+")
-f.write(inargsMics)
-f.close()
+#Making coords file to display picks (is this useful at all?????? Removed for now)
+#f=open(outargsPath+"coords_suffix_extract.star","w+")
+#f.write(inargsMics)
+#f.close()
 print('.star files created')
 """<<< make star files"""
 
 """Finishing up >>>"""
 f=open(outargsPath+"RELION_OUTPUT_NODES.star","w+")
-f.write("data_output_nodes\nloop_\n_rlnPipeLineNodeName #1\n_rlnPipeLineNodeType #2\n"+outargsStar+" 1\n"+outargsPath+"coords_suffix_extract.star 2")
+#f.write("data_output_nodes\nloop_\n_rlnPipeLineNodeName #1\n_rlnPipeLineNodeType #2\n"+outargsStar+" 1\n"+outargsPath+"coords_suffix_extract.star 2")
+f.write("data_output_nodes\nloop_\n_rlnPipeLineNodeName #1\n_rlnPipeLineNodeType #2\n"+outargsStar+" 1")
 f.close()
 f=open(outargsPath+"RELION_JOB_EXIT_SUCCESS","w+")
 f.close()
