@@ -30,11 +30,11 @@ Run any of the included scripts from Relion's GUI as External job:
  - Optional parameters:
    - `number_of_particles`: Expected number of particles (Topaz parameter)
    - `scalefactor`: Micrograph binning factor for image pre-processing (Topaz parameter)
-   - `model`: Trained or pre-trained model to be used (full Relion path! - e.g. `External/job123/model_epoch10.sav` or a pre-trained model (options:resnet8_u32, resnet8_u64, resnet16_u32, resnet16_u64)
+   - `model`: Trained or pre-trained model to be used (full Relion path! - e.g. `External/job123/model_epoch10.sav` or a pre-trained model (options: resnet16_u64, resnet16_u32, resnet8_u64, resnet8_u32))
    - `device`: GPU/CPU processing device (if 0 or greater this is GPU ID, if negative then use CPUs)
    - `pickthreshold`: Particle extraction threshold during picking (larger number means less particles are picked) (Topaz parameter)
    - `selectthreshold`: Particle selection threshold. First check the picks at the pick_threshold and determine what the selection threshold should be by looking at several micrographs with picks (Topaz parameter)
-   - `radius`: Extraction particle radius. Increase this to decrease overlapping/double particle picks (Topaz parameter)
+   - `radius`: Extraction particle radius in binned pixels. Increase this to decrease overlapping/double particle picks (Topaz parameter)
    - `skip_pick`: When this is set to True, the script will only export particles. This allows to test different selectthreshold values without re-running the picking step as a **CONTINUE** job. Leave empty when initially picking!
    - `skip_preprocess`: When this is set to True, the script will skip the preprocessing step. You probably want to use the skip_pick option instead.
  - After picking, look at the picks on several micrographs, then set `skip_pick` to True and adjust the `selectthreshold` (larger number means less particles are picked) until your micrographs are picked well.
